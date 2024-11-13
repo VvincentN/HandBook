@@ -1,0 +1,17 @@
+#include <iostream>
+int main() {
+    int n;
+    std::cin >> n;
+    int* seats = new int[n]; 
+    for (int i = 0; i < n; ++i) seats[i] = 0;
+    for (int i = 1; i <= n; i++) {
+        int seat;
+        std::cin >> seat;
+        seats[seat - 1] = i;
+    }
+    for (int i = 0; i < n; i++) {
+        std::cout << seats[i] << (i == n - 1 ? "" : " ");
+    }
+    std::cout << std::endl;
+    delete[] seats;
+}
