@@ -1,0 +1,22 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <vector>
+std::vector<std::string> sortLines() {
+    std::vector<std::string> lines;
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        lines.push_back(line);
+    }
+    if (std::cin.fail() && !std::cin.eof()) {
+        return {};
+    }
+    std::sort(lines.begin(), lines.end(), std::greater<std::string>());
+    return lines;
+}
+int main() {
+    std::vector<std::string> sortedLines = sortLines();
+    for (const auto& line : sortedLines) {
+        std::cout << line << '\n';
+    }
+}
