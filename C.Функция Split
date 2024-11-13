@@ -1,0 +1,20 @@
+#include <string>
+#include <vector>
+
+std::vector<std::string> Split(const std::string& str, char delimiter) {
+    std::vector<std::string> result;
+    std::string current_word;
+
+    for (char c : str) {
+        if (c == delimiter) {
+            result.push_back(current_word);
+            current_word = "";
+        } else {
+            current_word += c;
+        }
+    }
+
+    result.push_back(current_word);
+
+    return result;
+}
