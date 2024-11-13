@@ -1,0 +1,17 @@
+#include <utility>
+#include <vector>
+
+std::pair<size_t, size_t> MatrixArgMax(const std::vector<std::vector<int>>& matrix) {
+    if (matrix.empty()) return {0, 0};
+
+    size_t best_row = 0, best_col = 0;
+    for (size_t i = 0; i < matrix.size(); ++i) {
+        for (size_t j = 0; j < matrix[i].size(); ++j) {
+            if (matrix[i][j] > matrix[best_row][best_col]) {
+                best_row = i;
+                best_col = j;
+            }
+        }
+    }
+    return {best_row, best_col};
+}
